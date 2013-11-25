@@ -7,8 +7,8 @@ You can add content by simply putting a file in /templates/notes/ the module wil
 
 Name the files using the template name. You can use html or markdown to write the help text.
 
-- /templates/notes/[tplname].html
-- /templates/notes/[tplname].md
+- /site/templates/notes/[tplname].html
+- /site/templates/notes/[tplname].md
 
 To style the content you can specify a custom css file url you add to the module settings.
 
