@@ -29,7 +29,7 @@ class TemplateNotes extends WireData implements Module, ConfigurableModule {
 
         return array(
             'title' => 'Template Notes',
-            'version' => 100,
+            'version' => 101,
             'author' => 'soma',
             'summary' => 'Renders a "Help" tab on pages with infos for the current used template. The content is loaded from /site/templates/notes/. You can add [tplname].html or [tplname].md files.',
             'href' => 'http://processwire.com/talk/topic/5019-template-notes/',
@@ -103,7 +103,7 @@ class TemplateNotes extends WireData implements Module, ConfigurableModule {
         $f->attr("name", "custom_css");
         $f->description = wire()->_("Add custom css file to style content of help text. Enter without leading slash, as it will append root automatic in case PW is installed in a subfolder.");
         $f->notes = wire()->_("Example: site/templates/notes/notes.css");
-        $f->attr("value", $data['custom_css']);
+        $f->attr("value", isset($data['custom_css']) ? $data['custom_css'] : '' );
         $inputfields->add($f);
 
         return $inputfields;
