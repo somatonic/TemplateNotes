@@ -29,7 +29,7 @@ class TemplateNotes extends WireData implements Module, ConfigurableModule {
 
         return array(
             'title' => 'Template Notes',
-            'version' => 101,
+            'version' => 102,
             'author' => 'soma',
             'summary' => 'Renders a "Help" tab on pages with infos for the current used template. The content is loaded from /site/templates/notes/. You can add [tplname].html or [tplname].md files.',
             'href' => 'http://processwire.com/talk/topic/5019-template-notes/',
@@ -74,7 +74,7 @@ class TemplateNotes extends WireData implements Module, ConfigurableModule {
 
         // add styles since admin theme has no proper html styles (!)
         if($this->custom_css){
-            if(file_exists($this->config->urls->root . $this->custom_css)) {
+            if(file_exists($this->config->paths->root . $this->custom_css)) {
                 $this->config->styles->add($this->config->urls->root . $this->custom_css);
             } else {
                 throw new WireException("{$this->config->urls->root}{$this->custom_css} not found. Make sure the file exists.");
