@@ -12,3 +12,11 @@ Name the files using the template name. You can use html or markdown to write th
 
 To style the content you can specify a custom css file url you add to the module settings.
 
+
+Changelog:
+
+1.0.3
+
+- Fixed issues with PW2.5
+- Fixed top margin on tab content
+- Added example class to TemplateNotes.css to move the Help tab to the right edge

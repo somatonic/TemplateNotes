@@ -17,3 +17,7 @@ Example Default styles for TemplateNotes module, to fix ul
     display: list-item;
 }
 
+/* put tab at the right edge of the tabs */
+#_TemplateNotes_tab{
+    /*float:right;*/
+}

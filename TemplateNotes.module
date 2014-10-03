@@ -29,7 +29,7 @@ class TemplateNotes extends WireData implements Module, ConfigurableModule {
 
         return array(
             'title' => 'Template Notes',
-            'version' => 102,
+            'version' => 103,
             'author' => 'soma',
             'summary' => 'Renders a "Help" tab on pages with infos for the current used template. The content is loaded from /site/templates/notes/. You can add [tplname].html or [tplname].md files.',
             'href' => 'http://processwire.com/talk/topic/5019-template-notes/',
@@ -82,17 +82,25 @@ class TemplateNotes extends WireData implements Module, ConfigurableModule {
         } else {
             $this->config->styles->add($this->config->urls->TemplateNotes . "TemplateNotes.css");
         }
+
         // create a new tab
         $tab = new InputfieldWrapper();
         $tab->attr('title', $this->_x('Help', 'tab'));
-        // $tab->head = $this->_('Instructions');
         $tab->attr('class', 'WireTab');
-
+        $tabId = $this->className() . "_tab";
+        $tab->attr('id', $tabId);
         $markup = $this->modules->get('InputfieldMarkup');
         $markup->value = "<div class='_TemplateNotes'>$value</div>";
+        $markup->label = $this->_x('Help', 'tab'); // add and hide a label to get rid of space at top
+        $markup->skipLabel = Inputfield::skipLabelHeader;
         $tab->add($markup);
 
-        $form->append($tab);
+        if(ProcessWire::versionMajor == 2 && ProcessWire::versionMinor <= 4)
+            $form->append($tab);
+
+        if(ProcessWire::versionMajor >= 2 && ProcessWire::versionMinor >= 5)
+            $form->prepend($tab);
+
     }
 
     public static function getModuleConfigInputfields(array $data) {
