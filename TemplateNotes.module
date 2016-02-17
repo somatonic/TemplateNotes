@@ -98,7 +98,7 @@ class TemplateNotes extends WireData implements Module, ConfigurableModule {
         if(ProcessWire::versionMajor == 2 && ProcessWire::versionMinor <= 4)
             $form->append($tab);
 
-        if(ProcessWire::versionMajor >= 2 && ProcessWire::versionMinor >= 5)
+        if(ProcessWire::versionMajor >= 2)
             $form->prepend($tab);
 
     }
